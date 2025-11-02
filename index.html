@@ -16,12 +16,36 @@
     <meta name="twitter:title" content="SeniorVstup - Bezpečný vstup do vane za 1 deň">
     <meta name="twitter:description" content="Premeníme vašu existujúcu vaňu na bezpečný sprchový kút. Hotové za 1 deň, bez búrania a neporiadku. Získajte nezáväznú ponuku.">
     <meta name="twitter:image" content="https://images.pexels.com/photos/7614405/pexels-photo-7614405.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940">
-</head>
+<style>
+            @keyframes marquee {
+                0%   { transform: translateX(0%); } /* Štart na 0 (okamžite viditeľné) */
+                100% { transform: translateX(-50%); } /* Koniec v polovici (kde začína druhý text) */
+            }
+            .animate-marquee {
+                display: inline-block;
+                /* padding-left: 100%;  <-- TOTO SME ZMAZALI (spôsobovalo oneskorenie) */
+                animation: marquee 40s linear infinite; /* Zdvojnásobený čas kvôli 2x textu */
+                white-space: nowrap; /* Udrží text v jednom riadku */
+            }
+            /* Inicialne skrytie popupu */
+            #popup-overlay {
+                display: none;
+            }
+        </style>
+
+  </head>
 
 <body class="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased">
-    
+<div class="bg-primary text-white text-center py-3 px-4 font-semibold shadow-md z-50 relative overflow-hidden whitespace-nowrap">
+    <div class="max-w-6xl mx-auto">
+        <span class="animate-marquee">
+    Akcia: Bezpečnostné madlo v hodnote 100€ ZADARMO ku každej inštalácii! Platí len do konca mesiaca. &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Akcia: Bezpečnostné madlo v hodnote 100€ ZADARMO ku každej inštalácii! Platí len do konca mesiaca.
+</span>
+        
+    </div>
+</div>
     <div class="min-h-screen bg-white">
-        <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b">
+       <header class="sticky top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b">
             <div class="max-w-6xl mx-auto px-4 py-3">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
@@ -54,16 +78,17 @@
             </div>
         </header>
 
-        <section id="hero" class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-4 overflow-hidden pt-32">
+        <section id="hero" class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-4 overflow-hidden pt-20">
             <div class="absolute inset-0 bg-black/60"></div>
-            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image:url(./assets/vana4.jpg)"></div>
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image:url(./assets/vana5.jpg)"></div>
             <div class="absolute inset-0 overflow-hidden">
                 <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
                 <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
             </div>
             <div class="relative z-10 max-w-6xl mx-auto text-center">
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl animate-fade-in">Prestaňte riskovať pri každom sprchovaní.</h1>
-                <p class="text-xl md:text-2xl text-white/95 mb-8 max-w-4xl mx-auto drop-shadow-lg animate-fade-in-delay">Premeníme vašu existujúcu vaňu na bezpečný a pohodlný sprchový kút. Hotové za 1 deň. Bez búrania a neporiadku.</p>
+               <p class="text-xl md:text-2xl text-white/95 mb-4 max-w-4xl mx-auto drop-shadow-lg animate-fade-in-delay">Premeníme vašu existujúcu vaňu na bezpečný a pohodlný sprchový kút.</p>
+<p class="text-xl md:text-2xl text-white/95 mb-8 max-w-4xl mx-auto drop-shadow-lg animate-fade-in-delay">Hotové za 1 deň. Bez búrania a neporiadku.</p>
                 <div class="mb-8 animate-fade-in-delay-2">
                     <div class="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-2xl hover:scale-105 transition-all duration-300 hover:shadow-3xl">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone h-8 w-8 text-primary animate-pulse" aria-hidden="true">
@@ -381,7 +406,35 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Plynulé scrollovanie pre všetky tlačidlá s atribútom 'data-scroll-to'
+          // --- KÓD PRE POPUP ZAČIATOK ---
+        const popupOverlay = document.getElementById('popup-overlay');
+        const popupModal = document.getElementById('popup-modal');
+        const popupCloseBtn = document.getElementById('popup-close');
+        const popupContactBtn = document.getElementById('popup-contact-btn');
+
+        const openPopup = () => {
+            if (popupOverlay) popupOverlay.style.display = 'flex';
+        };
+
+        const closePopup = () => {
+            if (popupOverlay) popupOverlay.style.display = 'none';
+        };
+
+        // Zobraziť popup po 2 sekundách (2000ms)
+        setTimeout(openPopup, 2000);
+
+        // Priradenie udalostí
+        if (popupCloseBtn) popupCloseBtn.addEventListener('click', closePopup);
+        // Zatvorí sa aj kliknutím na tmavé pozadie
+        if (popupOverlay) popupOverlay.addEventListener('click', closePopup);
+        // Zabráni zatvoreniu pri kliku dovnútra modálu (okna)
+        if (popupModal) popupModal.addEventListener('click', (e) => e.stopPropagation()); 
+        // Tlačidlo v popupe tiež zatvorí popup (okrem scrollovania)
+        if (popupContactBtn) popupContactBtn.addEventListener('click', closePopup);
+        // --- KÓD PRE POPUP KONIEC ---
+
+
+                   // Plynulé scrollovanie pre všetky tlačidlá s atribútom 'data-scroll-to'
             const scrollButtons = document.querySelectorAll('[data-scroll-to]');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -419,6 +472,31 @@
             }
         });
     </script>
+<div id="popup-overlay" class="fixed inset-0 bg-black/60 z-[100] flex items-center justify-center p-4">
+    <div id="popup-modal" class="relative bg-white rounded-lg shadow-2xl max-w-md overflow-hidden">
 
+        <button id="popup-close" class="absolute top-3 right-3 text-gray-400 hover:text-gray-800 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+            </svg>
+        </button>
+
+        <img src="./assets/madlo.jpg" alt="Akciový banner" class="w-full object-cover" style="height: 12rem;">
+
+        <div class="p-6 text-center">
+            <h3 class="text-2xl font-bold text-foreground mb-3">Limitovaná Akcia!</h3>
+            <p class="text-muted-foreground mb-4">
+                Objednajte si inštaláciu tento mesiac a získajte od nás
+                <strong class="text-primary">bezpečnostné madlo v hodnote 100€ ZADARMO!</strong>
+            </p>
+
+            <button data-scroll-to="contact" id="popup-contact-btn" class="inline-flex items-center justify-center whitespace-nowrap font-medium h-11 rounded-md bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl animate-pulse-slow w-full">
+                Chcem madlo zadarmo
+            </button>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
