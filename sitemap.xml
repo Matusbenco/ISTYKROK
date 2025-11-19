@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://www.istykrok.eu/</loc>
+    <lastmod>2025-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <image:image>
+      <image:loc>https://www.istykrok.eu/assets/logo_istykrok.png</image:loc>
+      <image:title>Jistý Krok Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.istykrok.eu/assets/vana5.jpg</image:loc>
+      <image:title>Bezpečný vstup do vane</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.istykrok.eu/assets/P.jpg</image:loc>
+      <image:title>Elegantný nízky vstup</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.istykrok.eu/assets/premena1.png</image:loc>
+      <image:title>Premena vane pred a po</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.istykrok.eu/ochrana-udaju.html</loc>
+    <lastmod>2025-11-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
